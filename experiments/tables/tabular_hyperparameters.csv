@@ -1,0 +1,9 @@
+dataset,kernel_ridge_alpha,kernel_ridge_gamma,neighbours,catboost_depth,catboost_trees,logistic_prior_sd,noise_scale
+concrete,0.1,0.125,3,4,300,,0.3086606897826266
+california,0.1,0.125,8,2,300,,0.4992963626415673
+yacht,0.001,0.16666666666666666,8,2,300,,0.041729795426024584
+australian,,,30,4,300,0.3,
+cleveland,,,30,2,100,0.3,
+german,,,20,4,300,0.1,
+vehicle,,,30,2,300,3.0,
+wdbc,,,20,6,100,0.3,

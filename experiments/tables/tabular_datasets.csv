@@ -1,0 +1,9 @@
+dataset,task,openml_id,rows,inputs,classes,train,test,pool,block
+concrete,regression,44959,1030,8,,515,100,415,128
+california,regression,44977,20640,8,,1000,100,2000,250
+yacht,regression,42370,308,6,,154,46,108,38
+australian,classification,40981,690,42,2,345,100,245,86
+cleveland,classification,194,297,25,5,148,44,105,37
+german,classification,31,1000,61,2,500,100,400,125
+vehicle,classification,54,846,18,4,423,100,323,105
+wdbc,classification,1510,569,30,2,284,85,200,71

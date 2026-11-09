@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.egg-info/
+
+# Environment
+.venv/
+.env
+
+# Caches
+.*_cache/
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
+
+# Data, outputs, checkpoints
+experiments/data/
+experiments/outputs/
+# Figures are tracked as PDFs
+experiments/figures/*.png
+*.pt
+*.ckpt

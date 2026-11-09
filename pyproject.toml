@@ -1,0 +1,91 @@
+[project]
+name = "predictive-coherence"
+version = "1.0.0"
+description = "Measuring and testing coherence in predictive models"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    {name = "Jamie Reason", email = "jamie.reason@reuben.ox.ac.uk"},
+]
+dependencies = [
+    "torch>=2.2",
+]
+
+[dependency-groups]
+dev = [
+    "ruff==0.16.7",
+    "pytest>=8",
+    "pre-commit",
+]
+experiments = [
+    "pc-experiments",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.8,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "predictive_coherence"
+
+[tool.uv]
+# `uv sync` installs the library, the experiments package and the dev tools.
+default-groups = ["dev", "experiments"]
+environments = [
+    "sys_platform == 'darwin'",
+    "sys_platform == 'linux'",
+]
+
+[tool.uv.workspace]
+members = ["experiments"]
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[tool.uv.sources]
+pc-experiments = { workspace = true }
+torch = [{ index = "pytorch-cu130", marker = "sys_platform == 'linux'" }]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "experiments/tests"]
+addopts = "-ra --import-mode=importlib"
+markers = [
+    "slow: spawns a subprocess or otherwise costs seconds, still runs on push",
+]
+filterwarnings = [
+    # Raised when anything inspects tabpfn's own compatibility shim, not by code here.
+    "ignore:Importing from 'tabpfn.model.loading' is deprecated:DeprecationWarning",
+]
+
+[tool.pyright]
+# So the CLI resolves imports the way the editor already does, and both report the same thing.
+# Not a gate: nothing runs pyright in pre-commit.
+venvPath = "."
+venv = ".venv"
+typeCheckingMode = "standard"
+exclude = ["experiments/outputs", "experiments/data", "**/__pycache__", "**/.*"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "experiments/src", "experiments/scripts"]
+extend-exclude = ["experiments/data", "experiments/outputs"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes (unused imports, etc.)
+    "I",   # isort (import sorting)
+    "UP",  # pyupgrade (modernize syntax)
+    "B",   # bugbear (likely bugs)
+    "SIM", # simplify
+    "NPY", # numpy-specific rules
+]
+ignore = ["E501"] # line-too-long — ruff format handles this
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]

@@ -1,0 +1,32 @@
+[project]
+name = "pc-experiments"
+version = "1.0.0"
+description = "Experiments for measuring and testing coherence in predictive models"
+requires-python = ">=3.12"
+authors = [
+    {name = "Jamie Reason", email = "jamie.reason@reuben.ox.ac.uk"},
+]
+classifiers = ["Private :: Do Not Upload"]
+dependencies = [
+    "predictive-coherence",
+    "numpy>=2.5.3",
+    "matplotlib>=3.10",
+    "einops>=0.8.2",
+    "torch>=2.9",
+    "scikit-learn>=1.9.1",
+    "pandas>=3.0.6",
+    "catboost>=1.2.10",
+    "tabpfn>=9.0.0",
+    "threadpoolctl>=3.7.0",
+    "stochtree>=0.4.5",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.8,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "pc_experiments"
+
+[tool.uv.sources]
+predictive-coherence = { workspace = true }

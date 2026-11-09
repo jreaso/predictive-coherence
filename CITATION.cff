@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper."
+title: "predictive-coherence"
+abstract: "Code for Measuring Coherence in Predictive Models: the incoherence ratio, an anytime-valid sequential test of coherence, and the paper's experiments."
+type: software
+license: MIT
+repository-code: "https://github.com/jreaso/predictive-coherence"
+authors:
+  - family-names: Reason
+    given-names: Jamie
+    affiliation: University of Oxford
+    email: jamie.reason@reuben.ox.ac.uk
+  - family-names: Shirvaikar
+    given-names: Vik
+    affiliation: University of Oxford
+  - family-names: Wilk
+    name-particle: van der
+    given-names: Mark
+    affiliation: University of Oxford
+  - family-names: Holmes
+    given-names: Chris C.
+    affiliation: University of Oxford
+preferred-citation:
+  type: conference-paper
+  title: "Measuring Coherence in Predictive Models"
+  authors:
+    - family-names: Reason
+      given-names: Jamie
+    - family-names: Shirvaikar
+      given-names: Vik
+    - family-names: Wilk
+      name-particle: van der
+      given-names: Mark
+    - family-names: Holmes
+      given-names: Chris C.
+  collection-title: "Advances in Neural Information Processing Systems"
+  conference:
+    name: "NeurIPS 2026"
+  year: 2026
+  month: 12
